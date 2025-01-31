@@ -1,0 +1,48 @@
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = { name, email };
+    console.log(data);
+  };
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>Name</label>
+        <input onChange={handleNameChange} type="text" value={name} />
+        <label>Email</label>
+        <input onChange={handleEmailChange} type="email" value={email} />
+        <button type="submit">Submit</button>
+      </form>
+
+      <p>{name}</p>
+      <p>{email}</p>
+    </div>
+  );
+}
+
+export default App;
+
+//Revision
+//✅ components
+//✅ jsx
+//✅ props => parent to child data transfer (one way)
+//✅ rendering => initial rendering and re-rendering
+//✅ virtaul dom
+//✅form handling
+//✅list rendering
+
+//state and props immutable
+//single page application

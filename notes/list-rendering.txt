@@ -1,0 +1,21 @@
+import React from 'react';
+
+function App() {
+  const listItems = ['item1', 'item2', 'item3', 'item4'];
+  return (
+    <div>
+      <ul>
+        {listItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+
+//list rendering (map method)
+//you should have to pass key prop for each element you are mapping
+
+//implement =>

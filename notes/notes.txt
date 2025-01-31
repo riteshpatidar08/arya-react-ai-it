@@ -1,0 +1,42 @@
+import React from 'react';
+import { useState } from 'react';
+
+function App() {
+  return (
+    <div>
+      <Button title="signin" />
+      <Button title="Submit" />
+      <Button title="Click" />
+      <Button title="props" />
+      <Button />
+      <Button />
+      <h1>react js</h1>
+      <input
+        style={{ color: 'red', backgroundColor: 'blue' }}
+        maxLength={5}
+        className="input"
+      />
+      <h1>hello</h1>
+      <p>hello</p>
+      <p>internal</p>
+    </div>
+  );
+}
+
+function Button(props) {
+  console.log(props);
+  //every react hook is a function
+  //every function return something
+
+  const [title , setTitle ] = useState('Logout')
+
+  // let title = 'hello';
+
+  const handleClick = () => {
+    setTitle('js')
+    console.log(title)
+  };
+
+  return <button onClick={handleClick}>{title}</button>;
+}
+export default App;
