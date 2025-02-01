@@ -1,0 +1,30 @@
+import React from 'react';
+import Card from './components/Card';
+function App() {
+  const CardData = [
+    { id: 1, title: 'React v19', description: 'lorem ipsum' },
+    { id: 2, title: 'React v18', description: 'ipsum lorem' },
+  ];
+  return (
+    <div>
+      {CardData.map((data) => (
+        <Card key={data.id} title={data.title} description={data.description} />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+
+function Card(props) {
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <p>{props.description} </p>
+            <button>Show more</button>
+        </div>
+    )
+}
+
+export default Card
