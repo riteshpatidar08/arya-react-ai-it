@@ -1,30 +1,54 @@
-//PASSING DATA FROM CHILD TO PARENT
-//CONTROLLED UNCONTORLLED COMPONENTS
-//REDUX TOOLKIT
-//USECALLBACK AND USEMEMO
+//redux toolkit
 
-import React, { useState } from 'react';
-import SearchInput from './components/SearchInput';
-import UnControlled from './components/UnControlled'
-import Navbar from './components/Navbar';
+//state management library
+
+//count , loading , error , products , token , role , id , name
+
+//useState , useReducer
+
+//props ❌
+
+//Redux toolkit => updated tradition react-redux
+
+// //initialState => {
+//   data : [] ,
+//   loading : false ,
+//   error : null
+// }
+
+//Actions
+// {type:increment}
+
+//NOTE Reducer function
+//NOTE it takes the previous state and update the state on the basis of action.
+
+//count : 0 => type:increment => goes to reducer function => count+1
+
+//dispatch function =>
+
+//compariosn useState =>
+// count : 0
+// handleIncreement : count+1
+// setCount(coutn+1)
+
+// onClick=> dispatch(increment)/
+
+//CreateSlice function => which manages action and reducer
+
+//we may have different slices on what we are implementing in the project
+
+import React from 'react';
+import { useSelector , useDispatch } from 'react-redux';
+import {increment ,decrement,reset} from './redux/slices/counterSlice'
 function App() {
-  const [dataFromChild, setDataFromChild] = useState('');
-
-  const getDataFromChild = (data) => {
-    setDataFromChild(data);
-  };
-  return (
-    <div className="h-96 border-4 border-red-500 m-10">
-      <Navbar/>
-      <h1>{dataFromChild}</h1>
-      <SearchInput getDataFromChild={getDataFromChild}>
-        <div>hello</div>
-      </SearchInput>
-      <UnControlled/>
-    </div>
-  );
+ const {count} = useSelector((state)=> state.count)
+ const dispatch = useDispatch()
+  return <div>
+    <p>{count}</p>
+    <button onClick={()=>{dispatch(increment())}}>Increment</button>
+    <button>decrement</button>
+    <button onClick={()=>dispatch(reset())}>reset</button>
+  </div>;
 }
 
 export default App;
-
-//Child to parent
