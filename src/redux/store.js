@@ -6,9 +6,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import  countReducer from './slices/counterSlice.js'
 console.log(countReducer)
+import productReducer from './slices/productSlice.js'
 const store = configureStore({
     reducer : {
-        count : countReducer 
+        count : countReducer ,
+        product : productReducer
     }
 })
 
